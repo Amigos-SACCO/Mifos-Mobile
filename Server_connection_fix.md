@@ -11,14 +11,16 @@ During the process of creating a secure connection with the server I attempted t
 5. Update or (create if not exist) network_security_config.xml in res/xml folder in your Android project to reference this custom CA certificate.
 6. Add this code in network_security_config.xml
  
-`<?xml version="1.0" encoding="utf-8"?>
+```
+<?xml version="1.0" encoding="utf-8"?>
 <network-security-config>
     <base-config>
         <trust-anchors>
             <certificates src="@raw/server"/>
         </trust-anchors>
     </base-config>
-</network-security-config>`
+</network-security-config>
+```
  
 7. Add this code in AndroidManifest.xml
 <application android:networkSecurityConfig="@xml/network_security_config"
