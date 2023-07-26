@@ -23,6 +23,7 @@ During the process of creating a secure connection with the server I attempted t
 ```
  
 7. Add this code in AndroidManifest.xml
+
 ```
 <application android:networkSecurityConfig="@xml/network_security_config"
 ```
