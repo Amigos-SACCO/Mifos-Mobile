@@ -57,8 +57,8 @@ The following are the step-by-step changes made to the code base to implement th
 1. SelfServiceOkHttpClient.kt
    - Modified the SelfServiceOkHttpClient class to include the custom SSL configuration and disable host-name verification.
  
-
-```kotlin
+kotlin
+```
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
