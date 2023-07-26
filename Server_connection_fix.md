@@ -58,8 +58,8 @@ The following are the step-by-step changes made to the code base to implement th
    - Modified the SelfServiceOkHttpClient class to include the custom SSL configuration and disable host-name verification.
  
 kotlin
-```
 
+```
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.mifos.mobile.api.SelfServiceInterceptor
