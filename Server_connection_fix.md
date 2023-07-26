@@ -40,7 +40,7 @@ Solution: Disabling `SSLVerification` and `HostnameVerification` in Mifos Mobile
 To resolve the SSL verification and hostname verification issues, the following modifications were made to the Mifos Mobile codebase:
  
 1. **Modified SelfServiceOkHttpClient**
-   - The SelfServiceOkHttpClient class, responsible for providing the OkHttp client instance used for network requests, was updated to include custom SSL configuration.
+   - The `SelfServiceOkHttpClient` class, responsible for providing the OkHttp client instance used for network requests, was updated to include custom SSL configuration.
  
 2. **TrustManager**
    - A custom `X509TrustManager` was implemented to disable SSL verification. The custom TrustManager accepts all server certificates without verification, effectively trusting all certificates.
