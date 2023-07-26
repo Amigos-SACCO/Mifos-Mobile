@@ -36,7 +36,7 @@ The issues were mainly due to the use of self-signed certificates or custom SSL 
  
 **Certificate Trust:** Since the `self-signed certificate` was not issued by a trusted `Certificate Authority (CA)`, the Android system did not recognize it as a trusted certificate. As a result, the certificate verification step during the SSL handshake failed.
  
-Solution: Disabling `SSLVerification` and `HostnameVerification` in Mifos Mobile
+# Solution: Disabling `SSLVerification` and `HostnameVerification` in Mifos Mobile
 To resolve the SSL verification and hostname verification issues, the following modifications were made to the Mifos Mobile codebase:
  
 1. **Modified SelfServiceOkHttpClient**
