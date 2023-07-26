@@ -6,7 +6,7 @@ During the process of creating a secure connection with the server I attempted t
 ## Steps to follow:
 1. Download openssl from https://slproweb.com/products/Win32OpenSSL.html  
 2. Install
-3. Run  openssl req -x509 -newkey rsa:2048 -keyout server.key -out server.crt -days 365 -nodes -subj "/CN=your hostname" command on cmd to create self-signed certificate in openssl/…/bin
+3. Run  ```openssl req -x509 -newkey rsa:2048 -keyout server.key -out server.crt -days 365 -nodes -subj "/CN=your hostname"``` command on cmd to create self-signed certificate in openssl/…/bin
 4. Add server.crt in res/raw folder (create if not exist)
 5. Update or (create if not exist) network_security_config.xml in res/xml folder in your Android project to reference this custom CA certificate.
 6. Add this code in network_security_config.xml
