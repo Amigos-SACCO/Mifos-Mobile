@@ -16,8 +16,8 @@ class BaseURL {
     }
 
     companion object {
-//         const val API_ENDPOINT = "192.168.43.111:8443"
-        const val API_ENDPOINT = "192.168.137.241:8443"
+         const val API_ENDPOINT = "192.168.43.111:8443"
+//        const val API_ENDPOINT = "192.168.137.241:8443"
 //        const val API_ENDPOINT = "196.189.119.48:8443"
 //        const val API_ENDPOINT = "www.amisis13.com"
         // const val API_ENDPOINT = "mobile.mifos.io"

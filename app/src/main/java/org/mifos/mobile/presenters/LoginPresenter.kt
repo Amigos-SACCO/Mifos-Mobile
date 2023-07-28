@@ -49,7 +49,6 @@ class LoginPresenter @Inject constructor(
      * authenticate the credentials or notify the view about any errors.
      */
     fun login(loginPayload: LoginPayload?) {
-        println("Login Payload: $loginPayload")
         checkViewAttached()
         if (isCredentialsValid(loginPayload)) {
             mvpView?.showProgress()
@@ -122,18 +121,30 @@ class LoginPresenter @Inject constructor(
 
                 override fun onNext(clientPage: Page<Client?>) {
                     mvpView?.hideProgress()
-                    if (clientPage.pageItems.isNotEmpty()) {
-                        val clientId = clientPage.pageItems[0]?.id?.toLong()
-                        val clientName = clientPage.pageItems[0]?.displayName
-                        preferencesHelper?.clientId = clientId
-                        dataManager.clientId = clientId
-                        reInitializeService()
-                        mvpView?.showPassCodeActivity(clientName)
+                    val localClientId = preferencesHelper?.userId
+                    if (localClientId != null) {
+                        val filteredList = clientPage.pageItems.filter { it?.id?.toLong()  == localClientId }
+                        if (filteredList.isNotEmpty()) {
+                            val clientId = filteredList[0]?.id?.toLong()
+                            val clientName = filteredList[0]?.displayName
+                            preferencesHelper?.clientId = clientId
+                            dataManager.clientId = clientId
+                            reInitializeService()
+                            mvpView?.showPassCodeActivity(clientName)
+                        } else {
+                            mvpView?.showMessage(context?.getString(R.string.error_client_not_found))
+                        }
                     } else {
-                        mvpView?.showMessage(
-                            context
-                                ?.getString(R.string.error_client_not_found),
-                        )
+                        if (clientPage.pageItems.isNotEmpty()) {
+                            val clientId = clientPage.pageItems[0]?.id?.toLong()
+                            val clientName = clientPage.pageItems[0]?.displayName
+                            preferencesHelper?.clientId = clientId
+                            dataManager.clientId = clientId
+                            reInitializeService()
+                            mvpView?.showPassCodeActivity(clientName)
+                        } else {
+                            mvpView?.showMessage(context?.getString(R.string.error_client_not_found))
+                        }
                     }
                 }
             })?.let {
